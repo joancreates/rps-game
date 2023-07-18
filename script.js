@@ -22,7 +22,7 @@
 //   The user wins and the machine loses.
 
 //- If the opposite happens on each scenario. The user loses and the Machine wins.
-//- If both players 
+//- If both players choose the same input return draw
 
 //Note: Implement recursive function with return function(); 
 //https://stackoverflow.com/questions/59105774/why-is-javascript-recursive-function-returning-undefined-even-when-i-am-return
@@ -35,7 +35,7 @@ function game() {
     let machineScore = 0;
     let drawsPerRound = 0;
 
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < 5; i++) { 
 
         roundResult = playRound(playerChoice(), machineChoice());
         
