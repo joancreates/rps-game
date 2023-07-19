@@ -27,9 +27,9 @@
 //Note: Implement recursive function with return function(); 
 //https://stackoverflow.com/questions/59105774/why-is-javascript-recursive-function-returning-undefined-even-when-i-am-return
 
-game();
+playGame();
 
-function game() {
+function playGame() {
 
     let playerScore = 0;
     let machineScore = 0;
@@ -37,7 +37,7 @@ function game() {
 
     for (i = 0; i < 5; i++) { 
 
-        roundResult = playRound(playerChoice(), machineChoice());
+        roundResult = playRound(getPlayerChoice(), getMachineChoice());
         
         alert(roundResult);
 
@@ -127,7 +127,7 @@ function playRound(playerSelection, machineSelection) {
 }
 
 
-function playerChoice(selection) {
+function getPlayerChoice(selection) {
     
     selection = prompt("Make a choice!")
                 .toLowerCase()
@@ -141,13 +141,13 @@ function playerChoice(selection) {
 
     alert("You have to choose Rock, Paper or Scissors. Try again!");
 
-    return playerChoice();
+    return getPlayerChoice();
 
     }
 }
 
 
-function machineChoice() {
+function getMachineChoice(randomNumber) {
 
     randomNumber = Math.floor(Math.random() *90) + 1;
 
