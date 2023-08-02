@@ -27,15 +27,21 @@
 //Note: Implement recursive function with return function(); 
 //https://stackoverflow.com/questions/59105774/why-is-javascript-recursive-function-returning-undefined-even-when-i-am-return
 
-playGame();
+const btns = document.querySelectorAll("button");
+
+btns.forEach((btn) => btn.addEventListener("click", playGame));
 
 function playGame() {
     let playerScore = 0;
     let machineScore = 0;
     let drawsPerRound = 0;
 
+    console.log(this);
+
     // for (i = 0; i < 5; i++) {  --- Temporarly disable 5 turns logic
-        roundResult = playRound(getPlayerChoice(), getMachineChoice());
+    roundResult = playRound.call
+        (this, getPlayerChoice.call(this), getMachineChoice());
+        
         alert(roundResult);
 
         if( roundResult.includes("won") ) {
@@ -94,9 +100,7 @@ function playRound(playerSelection, machineSelection) {
 }
 
 function getPlayerChoice(selection) {
-    selection = prompt("Make a choice!")
-                .toLowerCase()
-                .trim();
+    selection = this.dataset.select;
 
     if (selection === "rock" || selection === "paper" || selection === "scissors") {
     return selection;
@@ -107,7 +111,6 @@ function getPlayerChoice(selection) {
 }
 
 function getMachineChoice(randomNumber) {
-
     randomNumber = Math.floor(Math.random() *90) + 1;
 
     if(randomNumber <= 30) {
