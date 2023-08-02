@@ -30,19 +30,15 @@
 playGame();
 
 function playGame() {
-
     let playerScore = 0;
     let machineScore = 0;
     let drawsPerRound = 0;
 
-    for (i = 0; i < 5; i++) { 
-
+    // for (i = 0; i < 5; i++) {  --- Temporarly disable 5 turns logic
         roundResult = playRound(getPlayerChoice(), getMachineChoice());
-        
         alert(roundResult);
 
         if( roundResult.includes("won") ) {
-
             playerScore = ++playerScore;
 
             alert(`Your Score: ${playerScore}/5\n`+ 
@@ -50,7 +46,6 @@ function playGame() {
             `Draws: ${drawsPerRound}`);
 
         } else if( roundResult.includes("lost") ) {
-
             machineScore = ++machineScore;
 
             alert(`Your Score: ${playerScore}/5\n`+
@@ -58,111 +53,69 @@ function playGame() {
             `Draws: ${drawsPerRound}`);
 
         } else {
-        
-            --i;
-
+            // --i; -- Temporary disable 5 turns logic
             drawsPerRound = ++drawsPerRound;
 
             alert(`Your Score: ${playerScore}/5\n`+
             `Rival Score: ${machineScore}/5\n`+
-            `Draws: ${drawsPerRound}`);
-            
+            `Draws: ${drawsPerRound}`); 
         }
 
+    // } -- Temporary disable 5 turns logic
+
+    if (playerScore > machineScore) {
+        alert("You've won the match!");
+    } else {
+        alert("You've lost the match!");
     }
-
-        if (playerScore > machineScore) {
-
-            alert("You've won the match!");
-
-        } else {
-
-            alert("You've lost the match!");
-
-        }
-
 }
-
 
 function playRound(playerSelection, machineSelection) {
 
     if(playerSelection === "rock" && machineSelection === "scissors") {
-
         return "Your rock has flawlessly crushed your opponent's scissors. You've won!";
-
     } else if(playerSelection === "scissors" && machineSelection === "rock") {
-
         return "Your scissors have dwindled to the solid power of the rock. You've lost.";
-        
     } else if(playerSelection === "rock" && machineSelection === "rock") {
-
         return "Draw";
-
     } else if(playerSelection === "scissors" && machineSelection === "paper") {
-
         return "Your scissors have cut his paper with ease and style. You've won!";
-
     } else if(playerSelection === "paper" && machineSelection === "scissors") {
-
         return "Your paper has been sliced in half by his scissors. You've lost.";
-
     } else if(playerSelection === "scissors" && machineSelection === "scissors") {
-
         return "Draw";
-        
     } else if(playerSelection === "paper" && machineSelection === "rock") {
-
         return "Your paper has fully covered his rock rendering it moveless. You've won!";
-
     } else if(playerSelection === "rock" && machineSelection === "paper") {
-
         return "Your rock has been blindfolded by your opponent's paper. You've lost.";
-
     } else if(playerSelection === "paper" && machineSelection === "paper") {
-
         return "Draw";
-
     }
-    
 }
 
-
 function getPlayerChoice(selection) {
-    
     selection = prompt("Make a choice!")
                 .toLowerCase()
                 .trim();
 
     if (selection === "rock" || selection === "paper" || selection === "scissors") {
-
     return selection;
-
     } else {
-
     alert("You have to choose Rock, Paper or Scissors. Try again!");
-
     return getPlayerChoice();
-
     }
 }
-
 
 function getMachineChoice(randomNumber) {
 
     randomNumber = Math.floor(Math.random() *90) + 1;
 
     if(randomNumber <= 30) {
-
     return "rock";
-
     } else if(randomNumber <= 60) {
-
     return "paper";
-
     } else {
-
     return "scissors";
-
     }
 }
 
