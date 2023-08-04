@@ -8,11 +8,26 @@
 </head>
 <body>
 
-    <div>
-        <button data-select="rock" class="play-btn">rock</button>
-        <button data-select="paper" class="play-btn">paper</button>
-        <button data-select="scissors" class="play-btn">scissors</button>
+    <div class="btns-container">
+        <button data-select="rock" class="play-btn">Rock</button>
+        <button data-select="paper" class="play-btn">Paper</button>
+        <button data-select="scissors" class="play-btn">& Scissors</button>
     </div>
+    
+    <div id="result-board" class="results">
+        <div id="match-result"></div>
+        <div id="your-score">
+            <span data-tracker="rounds"></span>
+        </div>
+        <div id="rival-score">
+            <span data-tracker="rounds"></span>
+        </div>
+        <div id="draws"></div>
+        <div id="games-won"><span></span></div>
+        <div id="games-played"><span></span></div>
+    </div>
+
+    <div id="buttons"></div>
 
 </body>
 </html>
