@@ -149,7 +149,7 @@ function game(roundResult) {
 
         function finishRoundLose() {
             ++totalGames;
-            roundMsg.textContent = "You've won the match!";
+            roundMsg.textContent = "You've lost the match!";
             gamesWon.textContent = `Games won: ${totalWins}`;
             gamesPlayed.textContent = `Games played: ${totalGames}`;
 
