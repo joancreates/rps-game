@@ -6,7 +6,7 @@
 
 //Each round is going to have the following sequence:
 
-//Get input from 2 players( User / Machine )
+//Get input from 2 players( User/Machine )
 
 //There's 3 inputs allowed "Rock", "Paper", and "Scissors"
 
@@ -200,25 +200,27 @@ function playRound(playerSelection, machineSelection) {
         "Two scissors have collided in an incredible fashion. Such a beautiful and elegant draw!",
         "Two papers covered each other shrinking into a tiny ball. This looks like a writer's paper bin, it's a draw!"
         ];
-
-    if(playerSelection === "rock" && machineSelection === "scissors")
-        return winMsg[0];
-    if(playerSelection === "scissors" && machineSelection === "rock")
-        return loseMsg[0];
-    if(playerSelection === "rock" && machineSelection === "rock")
-        return drawMsg[0];
-    if(playerSelection === "scissors" && machineSelection === "paper") 
-        return winMsg[1];
-    if(playerSelection === "paper" && machineSelection === "scissors")
-        return loseMsg[1];
-    if(playerSelection === "scissors" && machineSelection === "scissors") 
-        return drawMsg[1];
-    if(playerSelection === "paper" && machineSelection === "rock")
-        return winMsg[2];
-    if(playerSelection === "rock" && machineSelection === "paper")
-        return loseMsg[2];
-    if(playerSelection === "paper" && machineSelection === "paper")
-        return drawMsg[2];
+    
+    switch(playerSelection + "/" + machineSelection) {
+        case "rock/scissors":
+            return winMsg[0];
+        case "scissors/rock":
+            return loseMsg[0];
+        case "rock/rock":
+            return drawMsg[0];
+        case "scissors/paper":
+            return winMsg[1];
+        case "paper/scissors":
+            return loseMsg[1];
+        case "scissors/scissors":
+            return drawMsg[1];
+        case "paper/rock":
+            return winMsg[2];
+        case "rock/paper":
+            return loseMsg[2];
+        case "paper/paper":
+            return drawMsg[2];
+    }
 }
 
 function getPlayerChoice(selection) {
@@ -231,7 +233,6 @@ function getPlayerChoice(selection) {
     return getPlayerChoice();
     }
 }
-
 function getMachineChoice(randomNumber) {
     randomNumber = Math.floor(Math.random() *90) + 1;
 
